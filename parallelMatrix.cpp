@@ -6,6 +6,8 @@
 
 #define N 10
 
+
+
 class Operaciones {
     public:
 
@@ -76,6 +78,37 @@ class Operaciones {
 
 };
 
+void printMatrix(int ma[N][N], int mb[N][N], int mr[N][N]) {
+    printf("Matriz A\n");
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
+                printf("%i \t", ma[i][j]);
+            }
+            printf("\n");
+        }
+
+        printf("\n");
+
+        printf("Matriz B\n");
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
+                printf("%i \t", mb[i][j]);
+            }
+            printf("\n");
+        }
+
+        printf("\n");
+
+        printf("Matriz Resultado\n");
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
+                printf("%i \t", mr[i][j]);
+            }
+            printf("\n");
+        }
+}
+
+
 int main()
 {
     int opcion = -1;
@@ -114,6 +147,8 @@ int main()
             tiempo = fin - inicio;
             //fin - inicio
             printf("\nEl tiempo de ejecucion del proceso fue de %f\n", tiempo);
+
+            printMatrix(ma, mb, mr);
         break;
         case 2:
             inicio = omp_get_wtime();
@@ -121,6 +156,8 @@ int main()
             fin = omp_get_wtime();
             tiempo = fin - inicio;
             printf("\nEl tiempo de ejecucion del proceso fue de %f\n", tiempo);
+
+            printMatrix(ma, mb, mr);
             break;
         case 3:
             inicio = omp_get_wtime();
@@ -128,6 +165,7 @@ int main()
             fin = omp_get_wtime();
             tiempo = fin - inicio;
             printf("\nEl tiempo de ejecucion del proceso fue de %f\n", tiempo);
+            printMatrix(ma, mb, mr);
             break;
         case 4:
             inicio = omp_get_wtime();
@@ -135,37 +173,12 @@ int main()
             fin = omp_get_wtime();
             tiempo = fin - inicio;
             printf("\nEl tiempo de ejecucion del proceso fue de %f\n", tiempo);
+            printMatrix(ma, mb, mr);
             break;
         default: break;
         }
 
-        printf("Matriz A\n");
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < N; j++){
-                printf("%i \t", ma[i][j]);
-            }
-            printf("\n");
-        }
-
-        printf("\n");
-
-        printf("Matriz B\n");
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < N; j++){
-                printf("%i \t", mb[i][j]);
-            }
-            printf("\n");
-        }
-
-        printf("\n");
-
-        printf("Matriz Resultado\n");
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < N; j++){
-                printf("%i \t", mr[i][j]);
-            }
-            printf("\n");
-        }
+        
 
     }while(opcion != 0);
 
